@@ -33,26 +33,19 @@ const onGalleryClick = (evt) => {
 
 const openModal = (src) => {
     const imgModal = basicLightbox.create(`
-      <img src="${src}" width="340" height="1280">
+      <img src="${src}" width="600" height="800">
     `);
 
     imgModal.show();
 
-    const closeModal = () => {
-        imgModal.close();
+    const handleImgClick = (evt) => {
+        if (evt.code === 'Escape') {
+            imgModal.close();
+            document.removeEventListener('keydown', handleImgClick);
+        }
     };
 
-    galleryList.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-    imgModal.element().addEventListener('click', (evt) => {
-        if (evt.target.nodeName !== 'IMG') {
-            closeModal();
-        }
-    });
+    document.addEventListener('keydown', handleImgClick);
 };
 
 galleryList.addEventListener('click', onGalleryClick);
