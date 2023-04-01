@@ -15,7 +15,7 @@ const galleryMarkup = galleryItems.map(({ original, preview, description }) => {
 
 galleryList.insertAdjacentHTML('beforeend', galleryMarkup); /* добавляем список <li> в <ul> */
 
-const lightbox = new SimpleLightbox('.gallery a', {
+const lightboxOption = new SimpleLightbox('.gallery a', {
     captions: true,
     captionsData: 'title', /* от куда брать название */
     captionDelay: 250, /* задержка */
@@ -23,9 +23,9 @@ const lightbox = new SimpleLightbox('.gallery a', {
 }); /* работа с опцией из библиотеки */
 
 
-document.addEventListener('keydown', function (event) { /* закрытие "модалки" с Escape */
-  if (event.code === 'Escape') { /* (code) - повертає фізичну клавішу */
-    lightbox.close();
+document.addEventListener('keydown', function (evt) { /* закрытие "модалки" с Escape */
+  if (evt.code === 'Escape') { /* (code) - повертає фізичну клавішу */
+    lightboxOption.close();
   }
 });
 
@@ -34,5 +34,7 @@ function onGalleryClick(evt) {
 }
 
 galleryList.addEventListener('click', onGalleryClick); /* додавання слухача */
+
+
 
 console.log(galleryItems);
