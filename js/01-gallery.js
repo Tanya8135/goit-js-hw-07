@@ -16,10 +16,9 @@ const createGalleryItem = ({ preview, original, description }) =>
    </li>`;
 
 const galleryMarkup = galleryItems.map(item => createGalleryItem(item)).join('');
-
 galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 
-const onGalleryClick = (evt) => {
+const onGalleryClick = (evt) => { /* обробка кліку по елементу */
     evt.preventDefault();
 
     const imageEl = evt.target.classList.contains('gallery__image');
@@ -27,7 +26,7 @@ const onGalleryClick = (evt) => {
         return;
     }
 
-    const originalSrc = evt.target.dataset.source;
+    const originalSrc = evt.target.dataset.source; /* використовується для відкриття модального вікна */
     openModal(originalSrc);
 };
 
