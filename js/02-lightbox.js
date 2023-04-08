@@ -29,12 +29,16 @@ document.addEventListener('keydown', function (evt) { /* закрытие "мо�
   }
 });
 
-function onGalleryClick(evt) {
-  evt.preventDefault(); /* сброс браузерных настроек */
-}
+// function onGalleryClick(evt) {
+//   evt.preventDefault(); /* сброс браузерных настроек */
+// }
 
-galleryList.addEventListener('click', onGalleryClick); /* додавання слухача */
+// galleryList.addEventListener('click', onGalleryClick); /* додавання слухача */
 
+galleryList.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  lightboxOption.open(evt.target.closest('.gallery__link')); 
+});
 
 
 console.log(galleryItems);
