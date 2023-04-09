@@ -50,3 +50,5 @@ const openModal = (src) => {
 galleryList.addEventListener('click', onGalleryClick);
 
 console.log(galleryItems);
+
+/* Попробовать переделать закрытие модалки с esc по уроку от 08.04.23 */
